@@ -11,6 +11,12 @@ variable "attach_instance_profile" {
   default     = true
 }
 
+variable "attach_admin_access" {
+  description = "Set to true to attach AdministratorAccess policy to EC2 role"
+  type        = bool
+  default     = false
+}
+
 variable "attach_read_only_access" {
   description = "Set to true to attach ReadOnlyAccess policy to EC2 role"
   type        = bool
