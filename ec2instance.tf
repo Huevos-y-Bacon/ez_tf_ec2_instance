@@ -47,6 +47,12 @@ resource "aws_iam_role_policy_attachment" "AmazonSSMManagedInstanceCore" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+resource "aws_iam_role_policy_attachment" "AdministratorAccess" {
+  count      = var.attach_admin_access ? 1 : 0
+  role       = aws_iam_role.foo.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+
 resource "aws_iam_role_policy_attachment" "ReadOnlyAccess" {
   count      = var.attach_read_only_access ? 1 : 0
   role       = aws_iam_role.foo.name
